@@ -1,7 +1,10 @@
 import { useContext, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { AppContext } from "./AppContext";
 
 export default function ConvertResults() {
+  const navigate = useNavigate();
+
   const { baseCurrency, targetCurrency, exchangeRate, getExchangeRate, amount, handleAmountInput, setBaseCurrency, setTargetCurrency } =
     useContext(AppContext);
 
@@ -23,6 +26,7 @@ export default function ConvertResults() {
     const newTargetCurrency = baseCurrency;
     setBaseCurrency(newBaseCurrency);
     setTargetCurrency(newTargetCurrency);
+    navigate(`/convert/${newBaseCurrency[0].toLowerCase()}-to-${newTargetCurrency[0].toLowerCase()}`);
   }
 
   useEffect(() => {

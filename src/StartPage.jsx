@@ -11,6 +11,7 @@ export default function StartPage() {
     baseCurrency,
     targetCurrency,
     getSupportedCodes,
+    getFlags,
   } = useContext(AppContext);
 
   const navigate = useNavigate();
@@ -35,8 +36,7 @@ export default function StartPage() {
         {baseCurrencyOptions.map((code, i) => (
           <li key={i}>
             <button onClick={() => handleBaseCurrencyButton(code)} className={baseCurrency[0] === code[0] ? "selected-currency" : null}>
-              <span className={`currency-flag currency-flag-${code[0].toLowerCase()}`}></span>
-              {code[0]} {code[1]}
+              <i className={`em ${getFlags(code[0])}`} role="presentation" aria-label="flag"></i> {code[0]} {code[1]}
             </button>
           </li>
         ))}
@@ -49,8 +49,7 @@ export default function StartPage() {
               onClick={() => handleTargetCurrencyButton(code)}
               className={targetCurrency[0] === code[0] ? "selected-currency" : null}
               disabled={baseCurrency.length === 0 || baseCurrency[0] === code[0]}>
-              <span className={`currency-flag currency-flag-${code[0].toLowerCase()} `}></span>
-              {code[0]} {code[1]}
+              <i className={`em ${getFlags(code[0])}`} role="presentation" aria-label="flag"></i> {code[0]} {code[1]}
             </button>
           </li>
         ))}

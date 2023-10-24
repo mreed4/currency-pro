@@ -40,6 +40,22 @@ function AppProvider({ children }) {
     setTargetCurrency(newTargetCurrency);
   }
 
+  const getFlags = (code) => {
+    const flags = {
+      USD: "em-us",
+      EUR: "em-flag-eu",
+      CAD: "em-flag-ca",
+      PKR: "em-flag-pk",
+      INR: "em-flag-in",
+      GBP: "em-flag-gb",
+      BRL: "em-flag-br",
+      IDR: "em-flag-id",
+      JPY: "em-flag-jp",
+      CNY: "em-flag-cn",
+    };
+    return flags[code];
+  };
+
   const value = {
     baseCurrencyOptions,
     targetCurrencyOptions,
@@ -54,6 +70,7 @@ function AppProvider({ children }) {
     handleAmountInput,
     getSupportedCodes,
     getExchangeRate,
+    getFlags,
   };
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
