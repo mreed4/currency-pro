@@ -2,14 +2,16 @@
   "name": "currency-pro",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "netlify": "netlify"
   },
   "dependencies": {
+    "country-currency-emoji-flags": "^1.0.11",
+    "emoji-flags": "^1.3.0",
     "netlify-cli": "^16.9.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

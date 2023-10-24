@@ -1,33 +1,36 @@
 import { useState } from "react";
-import { Link, BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Link, Routes, Route } from "react-router-dom";
 import "./App.css";
 
 import StartPage from "./StartPage";
+import ConvertResults from "./ConvertResults";
 
 function Header() {
   return (
     <header>
-      <h1>Currencypro</h1>
+      <Link to="/">
+        <img src="./src/assets/Currencypro.png" alt="Currencypro" />
+      </Link>
       <nav>
         <ul className="main-nave">
           <li>
-            <Link to="/currency-pro/">Currency Converter</Link>
+            <Link to="/">Currency Converter</Link>
           </li>
           <li>
-            <Link to="/currency-pro/">Features</Link>
+            <Link to="/">Features</Link>
           </li>
           <li>
-            <Link to="/currency-pro/">Resources</Link>
+            <Link to="/">Resources</Link>
           </li>
         </ul>
       </nav>
       <nav className="secondary-nav">
         <ul>
           <li>
-            <Link to="/currency-pro/">Sign In</Link>
+            <Link to="/">Sign In</Link>
           </li>
           <li>
-            <Link to="/currency-pro/">Learn More</Link>
+            <Link to="/">Learn More</Link>
           </li>
         </ul>
       </nav>
@@ -38,10 +41,11 @@ function Header() {
 function App() {
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       <main>
         <Routes>
-          <Route path="/currency-pro/" element={<StartPage />} />
+          <Route path="/" element={<StartPage />} />
+          <Route path="/convert/:baseToTarget" element={<ConvertResults />} />
         </Routes>
       </main>
       <footer></footer>
