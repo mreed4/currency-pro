@@ -11,6 +11,7 @@ function AppProvider({ children }) {
   const [targetCurrency, setTargetCurrency] = useState([]);
   const [exchangeRate, setExchangeRate] = useState(0);
   const [amount, setAmount] = useState(0);
+  const [rateUpdatedTime, setRateUpdatedTime] = useState(0);
 
   async function getSupportedCodes() {
     const response = await fetch(`${netlify}/getSupportedCodes`);
@@ -26,6 +27,7 @@ function AppProvider({ children }) {
     const response = await fetch(`${netlify}/getPairConversionRate?baseCurrency=${baseCurrency}&targetCurrency=${targetCurrency}`);
     const json = await response.json();
     setExchangeRate(json.conversion_rate);
+    setRateUpdatedTime(json.time_last_update_unix);
   }
 
   function handleAmountInput(newAmount) {
@@ -40,7 +42,7 @@ function AppProvider({ children }) {
     setTargetCurrency(newTargetCurrency);
   }
 
-  const getFlags = (code) => {
+  function getFlags(code) {
     const flags = {
       USD: "em-us",
       EUR: "em-flag-eu",
@@ -53,8 +55,9 @@ function AppProvider({ children }) {
       JPY: "em-flag-jp",
       CNY: "em-flag-cn",
     };
+
     return flags[code];
-  };
+  }
 
   const value = {
     baseCurrencyOptions,
@@ -63,6 +66,7 @@ function AppProvider({ children }) {
     targetCurrency,
     exchangeRate,
     amount,
+    rateUpdatedTime,
     setBaseCurrency,
     setTargetCurrency,
     handleBaseCurrencyButton,
