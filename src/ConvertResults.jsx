@@ -35,7 +35,7 @@ export default function ConvertResults() {
     const newTargetCurrency = baseCurrency;
     setBaseCurrency(newBaseCurrency);
     setTargetCurrency(newTargetCurrency);
-    navigate(`/convert/${newBaseCurrency[0].toLowerCase()}-to-${newTargetCurrency[0].toLowerCase()}`);
+    // navigate(`/convert/${newBaseCurrency[0].toLowerCase()}-to-${newTargetCurrency[0].toLowerCase()}`);
   }
 
   function getRelativeTime(unixTime) {
@@ -70,9 +70,6 @@ export default function ConvertResults() {
     console.log(rateUpdatedTime);
   }, [baseCurrency, targetCurrency]);
 
-  const firstPart = [...String(exchangeRate * amount)].slice(0, [...String(exchangeRate)].indexOf(".") + 4);
-  const remainingDigits = [...String(exchangeRate * amount)].slice([...String(exchangeRate)].indexOf(".") + 4);
-
   return (
     <section className="convert-results-page">
       <div>
@@ -86,11 +83,9 @@ export default function ConvertResults() {
             onChange={(e) => handleAmountInput(e.target.value)}
           />
           <span>
-            <span>
-              {symbols[targetCurrency[0]]}
-              {firstPart}
-            </span>
-            <span className="remaining-digits">{remainingDigits}</span>
+            {new Intl.NumberFormat("en-US", { style: "currency", currency: targetCurrency[0], maximumFractionDigits: 4 }).format(
+              amount * exchangeRate
+            )}
           </span>
         </p>
         <div className="swap-currencies">
