@@ -15,6 +15,7 @@ export default function ConvertResults() {
     setBaseCurrency,
     setTargetCurrency,
     rateUpdatedTime,
+    getFlags,
   } = useContext(AppContext);
 
   const symbols = {
@@ -75,7 +76,7 @@ export default function ConvertResults() {
       <div>
         <h2>Currencypro Converter</h2>
         <p>Check live foreign currency exchange rates</p>
-        <p className="amounts">
+        <div className="amounts">
           <input
             type="number"
             value={amount}
@@ -83,20 +84,21 @@ export default function ConvertResults() {
             onChange={(e) => handleAmountInput(e.target.value)}
           />
           <span>
-            {new Intl.NumberFormat("en-US", { style: "currency", currency: targetCurrency[0], maximumFractionDigits: 4 }).format(
+            {new Intl.NumberFormat("en-US", { style: "currency", currency: targetCurrency[0], maximumFractionDigits: 2 }).format(
               amount * exchangeRate
             )}
           </span>
-        </p>
+        </div>
         <div className="swap-currencies">
           <span>
-            {baseCurrency[0]}-{baseCurrency[1]}
+            <i className={`em ${getFlags(baseCurrency[0])}`} role="presentation" aria-label="flag"></i> {baseCurrency[0]}-{baseCurrency[1]}
           </span>
           <button onClick={() => swapCurrencies()} className="swap-button">
-            <span className="material-symbols-outlined">currency_exchange</span>
+            <span className="material-symbols-outlined">sync_alt</span>
           </button>
           <span>
-            {targetCurrency[0]}-{targetCurrency[1]}
+            <i className={`em ${getFlags(targetCurrency[0])}`} role="presentation" aria-label="flag"></i> {targetCurrency[0]}-
+            {targetCurrency[1]}
           </span>
         </div>
         <p className="updated-time">Last updated {getRelativeTime(rateUpdatedTime)}</p>

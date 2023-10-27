@@ -25,7 +25,7 @@
   transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
 }
 
-.currency-list li:hover button {
+.currency-list li:hover button:not(:disabled) {
   background-color: hsla(225.7, 77.2%, 55.3%, 0.3);
 }
 
@@ -89,11 +89,12 @@
 .swap-button span {
   margin-left: -1px;
 }
+
 .swap-currencies,
 .amounts {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   margin: 2rem 0;
 }
@@ -104,14 +105,18 @@
   font-weight: 400;
   line-height: 22px; /* 157.143% */
   letter-spacing: 0.14px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 .swap-currencies button {
-  border: 0;
+  /* border: 0;
   background: transparent;
   padding: 0;
   margin: 0;
-  cursor: pointer;
+  cursor: pointer; */
 }
 
 .remaining-digits {
@@ -135,7 +140,7 @@ h2 {
   text-align: center;
 }
 
-p,
+.amounts span,
 .amounts input {
   margin: 2rem 0;
   font-size: 24px;
@@ -148,8 +153,6 @@ p,
 .amounts input {
   padding: 0.5rem;
   border: 0;
-  background: hsla(0, 0%, 100%, 0.1);
-  border-radius: 4px;
 }
 
 section {
@@ -160,4 +163,13 @@ section {
 section > div {
   max-width: 1120px;
   margin: 0 auto;
+}
+
+.updated-time {
+  text-align: center;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 26px; /* 144.444% */
+  letter-spacing: 0.09px;
 }

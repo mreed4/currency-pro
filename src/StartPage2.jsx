@@ -46,7 +46,7 @@ export default function StartPage() {
             </li>
           ))}
         </ol>
-        <h3>Select your target currency</h3>
+        <h3 className={baseCurrency.length === 0 ? "disabled" : null}>Select your target currency</h3>
         <ol className="currency-list target-currency">
           {targetCurrencyOptions.map((code, i) => (
             <li key={i}>

@@ -65,9 +65,15 @@ button {
   cursor: pointer;
 }
 
+p {
+  text-align: center;
+}
+
+h3.disabled,
 button:disabled {
   opacity: 0.5;
   cursor: default;
+  transition: opacity 0.2s ease-in-out;
 }
 
 @media (prefers-color-scheme: light) {

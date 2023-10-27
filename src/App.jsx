@@ -2,8 +2,8 @@ import { useState } from "react";
 import { Link, Routes, Route } from "react-router-dom";
 import "./App.css";
 
-import StartPage from "./StartPage";
 import ConvertResults from "./ConvertResults";
+import StartPage from "./StartPage2";
 
 function Header() {
   return (
@@ -41,7 +41,7 @@ function Header() {
 function App() {
   return (
     <>
-      {/* <Header /> */}
+      <Header />
       <main>
         <Routes>
           <Route path="/" element={<StartPage />} />
