@@ -3,16 +3,18 @@ import { Link, Routes, Route } from "react-router-dom";
 import "./App.css";
 
 import ConvertResults from "./ConvertResults";
-import StartPage from "./StartPage2";
+import StartPage from "./StartPage";
+import Logo from "./Logo";
 
 function Header() {
   return (
     <header>
-      <Link to="/">
-        <img src="./src/assets/Currencypro.png" alt="Currencypro" />
+      <Link to="/" className="logo-link">
+        <Logo />
+        Currencypro
       </Link>
       <nav>
-        <ul className="main-nave">
+        <ul className="main-nav">
           <li>
             <Link to="/">Currency Converter</Link>
           </li>

@@ -71,6 +71,10 @@ export default function ConvertResults() {
     console.log(rateUpdatedTime);
   }, [baseCurrency, targetCurrency]);
 
+  useEffect(() => {
+    document.title = `CurrencyPro | ${baseCurrency[0]} to ${targetCurrency[0]}`;
+  }, [baseCurrency, targetCurrency]);
+
   return (
     <section className="convert-results-page">
       <div>

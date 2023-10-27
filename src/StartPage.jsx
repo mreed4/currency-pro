@@ -24,6 +24,10 @@ export default function StartPage() {
     getSupportedCodes();
   }, []);
 
+  useEffect(() => {
+    document.title = "CurrencyPro";
+  }, []);
+
   return (
     <section className="start-page">
       <div>
@@ -66,6 +70,7 @@ export default function StartPage() {
         <button onClick={handleConvertButton} disabled={!baseCurrency[0] || !targetCurrency[0] || baseCurrency === targetCurrency}>
           Convert
         </button>
+        {baseCurrency === targetCurrency && <p className="error">Base currency and target currency cannot be the same</p>}
       </div>
     </section>
   );

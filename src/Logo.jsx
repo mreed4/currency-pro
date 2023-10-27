@@ -1,7 +1,7 @@
 export default function Logo() {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-      <mask id="mask0_2_205" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" className="logo-mark">
+      <mask id="mask0_2_205" style={{ maskType: "alpha" }} maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
         <circle cx="12" cy="12" r="12" fill="#C4C4C4" />
       </mask>
       <g mask="url(#mask0_2_205)">
